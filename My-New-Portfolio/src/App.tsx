@@ -1,7 +1,10 @@
 import './App.css'
-import Preloader from './components/Preloader'
-import Hero from './components/Hero'
-import { THINGS_I_DO, INTRO_HEIGHTS } from './constants'
+import Preloader from './components/loading/Preloader'
+import Hero from './components/sections/hero/Hero'
+import About from './components/sections/about/About'
+import Skills from './components/Skills'
+import GitHub from './components/GitHub'
+import { THINGS_I_DO, INTRO_HEIGHTS } from './data'
 import { useIntroAnimation } from './hooks/useIntroAnimation'
 
 function App() {
@@ -11,6 +14,9 @@ function App() {
     <>
       {isLoading && <Preloader heights={INTRO_HEIGHTS} />}
       <Hero thingsIDo={THINGS_I_DO} />
+      <About />
+      <Skills />
+      <GitHub />
     </>
   )
 }

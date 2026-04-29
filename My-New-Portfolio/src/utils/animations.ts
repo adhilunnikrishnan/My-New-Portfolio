@@ -28,6 +28,23 @@ export const playIntroAnimation = (onComplete: () => void) => {
     ease: "power2.inOut"
   }, "<");
 
+  // 1c. Name Writing Animation (Staggered appearance)
+  tl.to(".name-first span", {
+    opacity: 1,
+    y: 0,
+    stagger: 0.1,
+    duration: 0.6,
+    ease: "power2.out"
+  }, 0.3);
+
+  tl.to(".name-second span", {
+    opacity: 1,
+    y: 0,
+    stagger: 0.05,
+    duration: 0.5,
+    ease: "power2.out"
+  }, "-=0.4");
+
   // 1b. Loading Line Exit
   tl.to([".loading-line", ".loading-percentage"], {
     x: "100%",
@@ -48,8 +65,8 @@ export const playIntroAnimation = (onComplete: () => void) => {
     ease: "power4.inOut"
   }, "-=0.4");
 
-  // 3. Center Text & Hourglass Reveal (Slide Up with blocks)
-  tl.to(".center-loading-wrapper", {
+  // 3. Hourglass Reveal (Slide Up with blocks)
+  tl.to(".hourglass-wrapper", {
     y: "-100vh",
     opacity: 0,
     duration: 1.2,

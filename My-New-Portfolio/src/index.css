@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Syne:wght@700;800&family=Permanent+Marker&display=swap');
 
 :root {
-  --background: #0a0a0a;
+  --background: #0a0a0a; /* Deep Black */
   --primary: #FFEB3B; /* Perfect Yellow */
-  --primary-glow: rgba(255, 235, 59, 0.3);
-  --text-main: #ffffff;
-  --text-muted: #a0a0a0;
+  --primary-glow: rgba(255, 235, 59, 0.1);
+  --text-main: #FFFFFF;
+  --text-muted: #AAAAAA;
   font-family: 'Outfit', sans-serif;
   line-height: 1.5;
   font-weight: 400;
