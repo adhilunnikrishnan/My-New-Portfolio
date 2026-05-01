@@ -8,6 +8,9 @@ import './FeaturedWork.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Handle potential CommonJS/ESM interop issues with react-fast-marquee
+const MarqueeComponent = (Marquee as any).default || Marquee;
+
 const FeaturedWork: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -109,7 +112,7 @@ const FeaturedWork: React.FC = () => {
         </div>
 
         <div className="py-16 -mx-8 featured-reveal" ref={marqueeRef}>
-          <Marquee 
+          <MarqueeComponent 
             pauseOnHover={true} 
             speed={50} 
             gradient={false}
@@ -136,7 +139,7 @@ const FeaturedWork: React.FC = () => {
                 </div>
               </div>
             ))}
-          </Marquee>
+          </MarqueeComponent>
         </div>
       </div>
 

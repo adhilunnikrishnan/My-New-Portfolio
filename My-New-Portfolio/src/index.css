@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Syne:wght@700;800&family=Permanent+Marker&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -13,41 +14,55 @@
   --color-text-muted: #AAAAAA;
 
   --animate-float: float 6s ease-in-out infinite;
+}
 
-  @utility outline-text {
-    color: transparent;
-    -webkit-text-stroke: 1px var(--color-primary);
-  }
+@utility outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-primary);
+}
 
-  @utility outline-text-white {
-    color: transparent;
-    -webkit-text-stroke: 1px #FFFFFF;
-  }
+@utility outline-text-white {
+  color: transparent;
+  -webkit-text-stroke: 1px #FFFFFF;
+}
 
-  @utility highlight {
-    color: #FFFFFF;
-    font-weight: 600;
-    border-bottom: 2px solid var(--color-primary);
-  }
+@utility outline-text-dark {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-background);
+}
+
+@utility highlight {
+  color: #FFFFFF;
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-primary);
 }
 
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Syne:wght@700;800&family=Permanent+Marker&display=swap');
-
   :root {
     color-scheme: dark;
   }
 
   body {
     @apply bg-background text-primary min-h-screen overflow-x-hidden antialiased;
+    background-color: var(--color-background);
   }
 
-  h1, h2, h3 {
-    @apply font-black uppercase tracking-tight;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-extrabold uppercase tracking-tight;
   }
 
-  a {
-    @apply text-primary no-underline transition-all duration-300;
+  p {
+    @apply font-sans;
+  }
+
+  .container {
+    @apply max-w-[1200px] mx-auto px-8;
+  }
+}
+
+@layer utilities {
+  .mask {
+    @apply overflow-hidden block;
   }
 }
 

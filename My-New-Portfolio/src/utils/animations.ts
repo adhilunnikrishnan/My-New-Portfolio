@@ -76,6 +76,7 @@ export const playIntroAnimation = (onComplete: () => void) => {
   // 3. Text Mask Reveal for Hero Content
   tl.to(".reveal-text", {
     y: "0%",
+    opacity: 1,
     duration: 1.4,
     stagger: 0.15,
     ease: "power3.out"
@@ -84,8 +85,8 @@ export const playIntroAnimation = (onComplete: () => void) => {
   // 3. Image reveal
   tl.fromTo(".image-wrapper", 
     { scale: 0.9, opacity: 0, x: 50 },
-    { scale: 1, opacity: 1, x: 0, duration: 2.5, ease: "power2.out" },
-    "-=1.6"
+    { scale: 1, opacity: 1, x: 0, duration: 1.6, ease: "power4.out" },
+    "-=1.8"
   );
 
   return tl;
