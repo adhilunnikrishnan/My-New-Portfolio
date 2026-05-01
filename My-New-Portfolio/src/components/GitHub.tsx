@@ -63,7 +63,7 @@ export default function GitHub() {
   }, []);
 
   return (
-    <section className="py-32 bg-background text-primary relative z-20 shadow-[0_-30px_100px_rgba(0,0,0,0.8)]" id="github">
+    <section className="py-12 bg-background text-primary relative z-20 shadow-[0_-30px_100px_rgba(0,0,0,0.8)]" id="github">
       <div className="max-w-[1200px] mx-auto px-8">
         <div className="mb-16">
           <span className="font-display text-sm tracking-[4px] opacity-40 block mb-4 uppercase">CONTRIBUTIONS</span>

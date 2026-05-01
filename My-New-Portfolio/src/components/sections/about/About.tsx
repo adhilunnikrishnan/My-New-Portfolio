@@ -40,12 +40,12 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative min-h-[140vh] bg-background text-primary z-10 py-32 overflow-hidden shadow-[0_-30px_100px_rgba(0,0,0,0.8)]" id="about">
-      <div className="absolute top-[15%] left-0 text-[25vw] font-display font-extrabold text-primary/2 whitespace-nowrap pointer-events-none z-0 leading-none select-none">
+    <section ref={sectionRef} className="relative min-h-[100vh] bg-background text-primary z-10 py-12 overflow-hidden shadow-[0_-30px_100px_rgba(0,0,0,0.8)]" id="about">
+      <div className="absolute top-[8%] left-0 text-[25vw] font-display font-extrabold text-primary/2 whitespace-nowrap pointer-events-none z-0 leading-none select-none">
         ABOUT ME ABOUT ME ABOUT ME
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-8 flex flex-col gap-32 relative z-20">
+      <div className="max-w-[1200px] mx-auto px-8 flex flex-col gap-12 relative z-20">
         <div className="flex flex-col gap-16 items-start max-w-[900px]">
           <div className="flex flex-col gap-4">
             <span className="block overflow-hidden">
@@ -72,7 +72,7 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        <div className="about-reveal grid grid-cols-1 md:grid-cols-3 gap-16 border-t border-primary/10 pt-24">
+        <div className="about-reveal grid grid-cols-1 md:grid-cols-3 gap-16 border-t border-primary/10 pt-12">
           <div className="relative pt-16">
             <div className="absolute left-0 top-0 font-display text-5xl font-extrabold leading-none text-transparent [-webkit-text-stroke:1px_rgba(255,235,59,0.4)]">01</div>
             <h3 className="text-3xl mb-6 text-primary font-display uppercase">Web Development</h3>
