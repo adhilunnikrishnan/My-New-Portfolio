@@ -10,11 +10,9 @@ import {
   FaBullseye,
   FaChevronRight,
   FaUser,
-  FaStar,
-  FaGamepad
+  FaStar
 } from 'react-icons/fa';
 import { GiBroadsword } from 'react-icons/gi';
-import { SiLeetcode } from 'react-icons/si';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,7 +60,6 @@ const LeetCodeGameSection: React.FC = () => {
   };
 
   const [data, setData] = useState<LeetCodeData>(mockData);
-  const [loading, setLoading] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -113,20 +110,12 @@ const LeetCodeGameSection: React.FC = () => {
         }
       } catch (error) {
         console.error('Error fetching LeetCode data:', error);
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  useEffect(() => {
-    // console.log("LeetCodeGameSection mounted");
-    console.log("Badges count:", data.badges.length);
-  }, [data]);
-
-  /* 
   useEffect(() => {
     if (!data) return;
 
@@ -194,7 +183,6 @@ const LeetCodeGameSection: React.FC = () => {
 
     return () => ctx.revert();
   }, [data]);
-  */
 
   return (
     <section ref={sectionRef} className="py-12 bg-background relative overflow-hidden z-20 shadow-[0_-30px_100px_rgba(0,0,0,0.6)]" id="leetcode">
@@ -209,7 +197,6 @@ const LeetCodeGameSection: React.FC = () => {
               <span className="relative z-10">CODING</span> <br />
               <span className="outline-text block relative z-10 group-hover/header:animate-[flicker_0.5s_infinite] group-hover/header:drop-shadow-[0_0_15px_rgba(255,235,59,0.4)]">QUEST</span>
               
-              {/* Decorative glitch lines on hover */}
               <div className="absolute top-0 left-0 w-full h-full opacity-0 group-hover/header:opacity-100 transition-opacity pointer-events-none">
                 <div className="absolute top-1/4 left-0 w-full h-[1px] bg-primary/20 animate-[glitch-line_1s_infinite]" />
                 <div className="absolute top-3/4 left-0 w-full h-[1px] bg-primary/20 animate-[glitch-line_1.5s_infinite_reverse]" />
@@ -272,25 +259,21 @@ const LeetCodeGameSection: React.FC = () => {
             label="Total Solved" 
             value={data.solved} 
             icon={<FaTrophy className="w-5 h-5" />} 
-            color="primary"
           />
           <StatCard 
             label="Easy" 
             value={data.easy} 
             icon={<FaBullseye className="w-5 h-5" />} 
-            color="green-500"
           />
           <StatCard 
             label="Medium" 
             value={data.medium} 
             icon={<FaBolt className="w-5 h-5" />} 
-            color="yellow-500"
           />
           <StatCard 
             label="Hard" 
             value={data.hard} 
             icon={<FaFire className="w-5 h-5" />} 
-            color="red-500"
           />
         </div>
 
@@ -349,7 +332,7 @@ const LeetCodeGameSection: React.FC = () => {
   );
 };
 
-const StatCard: React.FC<{ label: string; value: number | string; icon: React.RefNode; color: string }> = ({ label, value, icon, color }) => (
+const StatCard: React.FC<{ label: string; value: number | string; icon: React.ReactNode }> = ({ label, value, icon }) => (
   <div className="stat-card bg-[#141414] border border-white/5 p-6 rounded-2xl flex flex-col items-center text-center group transition-all duration-500 cursor-default hover:border-primary/40 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,235,59,0.1)] relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
     <div className="mb-3 p-3 rounded-xl bg-white/5 text-primary group-hover:scale-110 group-hover:text-primary transition-all duration-500 relative z-10">

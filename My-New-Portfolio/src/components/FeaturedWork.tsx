@@ -4,7 +4,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projects } from '../data/projects';
 import type { Project } from '../data/projects';
-import './FeaturedWork.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,7 +17,6 @@ const FeaturedWork: React.FC = () => {
   const overlayContainerRef = useRef<HTMLDivElement>(null);
   const flapRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const marqueeRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -53,7 +51,7 @@ const FeaturedWork: React.FC = () => {
       {
         x: rect.left - (window.innerWidth / 2) + (rect.width / 2),
         y: rect.top - (window.innerHeight / 2) + (rect.height / 2),
-        scale: rect.width / 1000, // Approximate scale
+        scale: rect.width / 1000, 
         opacity: 0
       },
       {
@@ -111,10 +109,10 @@ const FeaturedWork: React.FC = () => {
           </h2>
         </div>
 
-        <div className="py-16 -mx-8 featured-reveal" ref={marqueeRef}>
+        <div className="py-16 -mx-8 featured-reveal">
           <MarqueeComponent 
             pauseOnHover={true} 
-            speed={50} 
+            speed={60} 
             gradient={false}
           >
             {projects.map((project) => (
@@ -123,18 +121,16 @@ const FeaturedWork: React.FC = () => {
                 className="w-[320px] mx-6 relative cursor-pointer transition-transform duration-300 hover:-translate-y-2.5 group" 
                 onClick={(e) => openProject(project, e)}
               >
+                {/* Folder Tab */}
                 <div className="w-[100px] h-[30px] rounded-t-xl relative z-10 ml-2.5" style={{ backgroundColor: project.color }}></div>
-                <div className="w-full h-[220px] bg-surface rounded-tr-xl rounded-br-xl rounded-bl-xl relative z-20 shadow-[0_20px_40px_rgba(0,0,0,0.4)] p-6 flex flex-col justify-end border border-primary/5">
-                  <div className="absolute -top-[60px] left-[15px] right-[15px] h-[180px] rounded-lg overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.5)] z-30 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-[1.02]">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="relative z-40">
-                    <h3 className="font-display text-xl font-extrabold text-white mb-2 uppercase">{project.title}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.slice(0, 3).map((t, i) => (
-                        <span key={i} className="text-[0.7rem] px-2 py-0.5 bg-white/5 text-primary rounded font-semibold uppercase">{t}</span>
-                      ))}
-                    </div>
+                
+                {/* Folder Body */}
+                <div className="w-full h-[180px] bg-surface rounded-tr-xl rounded-br-xl rounded-bl-xl relative z-20 shadow-[0_20px_40px_rgba(0,0,0,0.4)] p-8 flex flex-col justify-center items-center border border-primary/10 transition-colors group-hover:bg-primary/5">
+                  <h3 className="font-display text-2xl font-extrabold text-white text-center uppercase leading-tight group-hover:text-primary transition-colors">{project.title}</h3>
+                  <div className="mt-4 flex flex-wrap justify-center gap-2">
+                    {project.tech.slice(0, 3).map((t, i) => (
+                      <span key={i} className="text-[0.6rem] px-2 py-0.5 bg-white/5 text-primary/60 rounded font-semibold uppercase border border-primary/5">{t}</span>
+                    ))}
                   </div>
                 </div>
               </div>

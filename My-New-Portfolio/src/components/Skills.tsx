@@ -11,16 +11,16 @@ const Skills: React.FC = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Reveal animation for header and grid
-      gsap.to('.skills-reveal', {
+      // Reveal animation for header and description only
+      gsap.to('.skills-header-reveal', {
         y: 0,
         opacity: 1,
-        duration: 1.2,
+        duration: 0.8,
         stagger: 0.1,
         ease: 'power4.out',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 70%',
+          start: 'top 80%',
         }
       });
 
@@ -28,12 +28,12 @@ const Skills: React.FC = () => {
       gsap.to('.skill-card', {
         y: 0,
         opacity: 1,
-        duration: 0.8,
-        stagger: 0.05,
-        ease: 'power3.out',
+        duration: 0.5,
+        stagger: 0.03,
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: cardsRef.current,
-          start: 'top 85%',
+          start: 'top 90%',
         }
       });
     }, sectionRef);
@@ -50,12 +50,12 @@ const Skills: React.FC = () => {
       <div className="max-w-[1200px] mx-auto px-8 flex flex-col gap-10 relative z-10">
         <div className="flex flex-col gap-8 items-start mb-16">
           <span className="block overflow-hidden">
-            <h2 className="skills-reveal font-display text-[clamp(2.5rem,6vw,6rem)] leading-[0.85] uppercase">
+            <h2 className="skills-header-reveal font-display text-[clamp(2.5rem,6vw,6rem)] leading-[0.85] uppercase" style={{ opacity: 0, transform: 'translateY(30px)' }}>
               TECHNICAL <br />
               <span className="outline-text">COMPETENCE</span>
             </h2>
           </span>
-          <p className="skills-reveal text-[clamp(1.1rem,1.8vw,1.8rem)] leading-[1.3] font-light text-primary max-w-[800px] opacity-80">
+          <p className="skills-header-reveal text-[clamp(1.1rem,1.8vw,1.8rem)] leading-[1.3] font-light text-primary max-w-[800px] opacity-80" style={{ opacity: 0, transform: 'translateY(30px)' }}>
             A modern tech stack designed for <span className="highlight">impact</span>, 
             <span className="highlight">efficiency</span>, and <span className="highlight">scale</span>. 
             Constantly evolving with the latest industry standards to deliver 
@@ -72,7 +72,7 @@ const Skills: React.FC = () => {
                 href={skill.url} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="skill-card skills-reveal bg-white/3 border border-primary/5 rounded-xl p-6 flex flex-col items-center justify-center gap-4 transition-all duration-500 hover:bg-primary/10 hover:border-primary/30 hover:-translate-y-2 group relative overflow-hidden"
+                className="skill-card bg-white/3 border border-primary/5 rounded-xl p-6 flex flex-col items-center justify-center gap-4 transition-all duration-500 hover:bg-primary/10 hover:border-primary/30 hover:-translate-y-2 group relative overflow-hidden"
                 style={{ opacity: 0, transform: 'translateY(40px)' }}
               >
                 <div className="text-[2.5rem] flex items-center justify-center drop-shadow-[0_0_8px_rgba(0,0,0,0.3)] transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_var(--color-primary-glow)] z-10" style={{ color: skill.color }}>
